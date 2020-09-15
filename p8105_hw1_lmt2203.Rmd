@@ -15,11 +15,11 @@ library(tidyverse)
 
 The chunk below creates a data frame comprised of: a random sample of size 10 from a standard normal distriution, a logical vector indicating whether elements of the sample are greater than 0, a character vector of length 10, a factor vector of length 10, with 3 different factor "levels".
 
-```{r problem_1}
+```{r create_df}
 prob1_df = 
   tibble (
              samp = rnorm (10),
-             vec_logical = as.logical (samp > 0),
+             vec_logical = samp > 0,
              vec_char = c ("a", "b", "c", "d", "e", "f", "g", "h", "i", "j"),
              vec_factor = factor (c("yes", "maybe", "no", "yes", "no", "maybe", "yes", "no", "maybe", "yes"))
 )
@@ -27,26 +27,29 @@ prob1_df =
 
 Take the mean of each variable in my data frame.
 
-```{r}
-mean (pull(prob1_df, samp))
-mean (pull(prob1_df, vec_logical))
-mean (pull(prob1_df, vec_char))
-mean (pull(prob1_df, vec_factor))
+```{r mean_pull_var}
+mean(pull(prob1_df, samp))
+mean(pull(prob1_df, vec_logical))
+mean(pull(prob1_df, vec_char))
+mean(pull(prob1_df, vec_factor))
 ```
 
 I can take the mean of numbers and logical but not character or factor.
 
-```{r}
+```{r converting_numeric}
 as.numeric (pull(prob1_df, samp))
 as.numeric (pull(prob1_df, vec_logical))
 as.numeric (pull(prob1_df, vec_char))
 as.numeric (pull(prob1_df, vec_factor))
 ```
 
-```{r
+```{r}
 as.numeric (pull(prob1_df, vec_logical)) * pull (prob1_df, samp)
 ```
 
+Why don't I like "$"
+prob1_df$samp
+pull(prob1_df, samp)
 
 
 
