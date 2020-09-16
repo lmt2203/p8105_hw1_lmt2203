@@ -7,13 +7,13 @@ output: github_document
 
 This is my solution to HW1. 
 
-```{r}
+```{r setup, include = FALSE}
 library(tidyverse)
 ```
 
 ## Prolem 1
 
-The chunk below creates a data frame comprised of: a random sample of size 10 from a standard normal distriution, a logical vector indicating whether elements of the sample are greater than 0, a character vector of length 10, a factor vector of length 10, with 3 different factor "levels".
+The chunk below creates a data frame comprised of variables.
 
 ```{r create_df}
 prob1_df =  tibble (
@@ -46,6 +46,20 @@ as.numeric (pull(prob1_df, vec_logical)) * pull (prob1_df, samp)
 as.factor (pull(prob1_df, vec_logical)) * pull (prob1_df, samp)
 as.numeric (as.factor (pull(prob1_df, vec_logical))) * pull (prob1_df, samp)
 ```
+This is the end of Problem 1. 
 
 ## Problem 2
+
+```{r}
+data("penguins", package = "palmerpenguins")
+```
+
+* Some descriptions of the penguins dataset:
+    + The categories of the variables in the dataset is `r names(penguins)`.
+    + The species of the penguins in the dataset are `r levels(penguins$species)`, and they live on `r levels (penguins$island)` islands. 
+    + The dataset has `r nrow(penguins)` rows and `r ncol(penguins)` columns.
+    + The mean flipper length is `r mean(penguins$flipper_length_mm, na.rm = TRUE)`.
+
+
+
 
