@@ -1,5 +1,5 @@
 ---
-title: "p8105_hw1_lmt2203"
+title: "P8105_Homework 1"
 author: "Linh Tran"
 date: "9/14/2020"
 output: github_document
