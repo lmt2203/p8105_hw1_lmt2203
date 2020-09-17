@@ -55,10 +55,10 @@ data("penguins", package = "palmerpenguins")
 ```
 
 * Some descriptions of the penguins dataset:
-    + The categories of the variables in the dataset are `r names(penguins)`. The total number of penguins in this dataset is `r count(penguins)`.
+    + The categories of the variables in the dataset are: `r names(penguins)`. The total number of penguins in this dataset is `r count(penguins)`.
     + The species of the penguins in the dataset are `r levels(penguins$species)` and they are distributed on `r levels (penguins$island)` islands. 
     + The dataset has **`r nrow(penguins)`** rows and **`r ncol(penguins)`** columns.
-    + The mean flipper length is **`r mean(penguins$flipper_length_mm, na.rm = TRUE)`**.
+    + The mean flipper length is **`r mean(pull(penguins,flipper_length_mm), na.rm = TRUE)`**.
     
 This code chunk generates a scatterplot of x and y
 ```{r create_plot}
